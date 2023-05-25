@@ -1,0 +1,334 @@
+.header {
+  @media (min-width: 1200px) {
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 32px;
+  }
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-width: 320px;
+  max-width: 768px;
+  justify-content: space-between;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $pseudo-color;
+    position: absolute;
+    top: 100%;
+  }
+
+  .header__navigation--button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: $button-color;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    box-sizing: border-box;
+
+    &:active {
+      background-color: $button-color;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      border: none;
+      box-sizing: border-box;
+    }
+
+    .header__navigation--button--text {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.2px;
+      color: $text-color;
+      font-weight: 500;
+      font-style: normal;
+      margin: 0;
+      display: none;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+
+      @media (min-width: 1200px) {
+        margin-right: 8px;
+        display: block;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      margin-left: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      background-color: inherit;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 16px;
+      background-color: transparent;
+      width: auto;
+
+      &:active {
+        background-color: transparent;
+        width: auto;
+      }
+    }
+    
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    min-width: 768px;
+    max-width: 1366px;
+  }
+
+  @media (min-width: 1200px) {
+    width: auto;
+    min-width: auto;
+
+    &::after {
+      display: none;
+    }
+  }
+
+}
+
+.header__navigation--right-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 16px;
+
+  .header__navigation--button {
+    &:nth-child(-n + 3) {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      &:nth-child(-n + 3) {
+        display: block;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      &:nth-child(-n + 4) {
+        display: none;
+      }
+    }
+  }
+
+  .phone {
+    display: block;
+    background-color: $button-color;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    padding: 11px;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+    background: $button-color url("../img/phone.png") no-repeat 50% 50%;
+
+    &:focus {
+      outline: none;
+      width: 40px;
+      height: 40px;
+      background: $button-color url("../img/phone.png") no-repeat 50% 50%;
+    }
+  }
+  
+  .message {
+    display: block;
+    background-color: $button-color;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    padding: 11px;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+    background: $button-color url("../img/message.png") no-repeat 50% 50%;
+
+    &:focus {
+      outline: none;
+      width: 40px;
+      height: 40px;
+      background: $button-color url("../img/message.png") no-repeat 50% 50%;
+    }
+  }
+  
+  .user {
+    display: block;
+    background-color: $button-color;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    padding: 11px;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+    background: $button-color url("../img/user.png") no-repeat 50% 50%;
+
+    &:focus {
+      outline: none;
+      width: 40px;
+      height: 40px;
+      background: $button-color url("../img/user.png") no-repeat 50% 50%;
+    }
+  }
+  
+
+  .line {
+    background: $border-color;
+    border-radius: 1px;
+    width: 2px;
+    height: 32px;
+    margin-left: 10px;
+    margin-right: 15px;
+
+    @media (min-width: 1200px) {
+      display: none;
+    }
+  }
+
+  .repair {
+    margin-right: 16px;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $button-color;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: relative;
+      padding: 11px;
+      cursor: pointer;
+      border: none;
+      box-sizing: border-box;
+      background: $button-color url("../img/repair.svg") no-repeat 50% 50%;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @media (min-width: 1200px) {
+      width: auto;
+    }
+  }
+
+  .checkstatus {
+    margin-right: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::after {
+      content: "";
+      background-color: $button-color;
+      width: 40px;
+      display: block;
+      height: 40px;
+      border-radius: 50%;
+      position: relative;
+      padding: 11px;
+      cursor: pointer;
+      border: none;
+      box-sizing: border-box;
+      background: $button-color url("../img/checkstatus.svg") no-repeat 50% 50%;
+    }
+    &:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+  }
+
+  p {
+    @media (min-width: 1200px) {
+        display: block;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        color: $text-color;
+        margin-right: 8px;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 500;
+        font-style: normal;
+    }
+  }
+}
+
+.header__navigation--left-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .first-line {
+    background: $border-color;
+    border-radius: 1px;
+    width: 2px;
+    height: 32px;
+    margin-left: 10px;
+    margin-right: 15px;
+    display: none;
+  }
+
+  .burger {
+    background-color: $button-color;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    padding: 11px;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+    margin-right: 16px;
+    margin-left: 16px;
+    background: $button-color url("../img/burger.svg") no-repeat 50% 50%;
+
+    &:active {
+      background-color: $button-color;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: relative;
+      padding: 11px;
+      cursor: pointer;
+      border: none;
+      box-sizing: border-box;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    display: none;
+  }
+}

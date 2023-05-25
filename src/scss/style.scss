@@ -1,17 +1,40 @@
-$bgColor: #24292e;
-$text: #fff;
+@import "./variables.scss";
+@import "./navigation-block.scss";
+@import "./header.scss";
+@import "./brands-block.scss";
+@import "./container.scss";
+@import "./default.scss";
+@import "./footer.scss";
+@import "./info-block.scss";
+@import "./modal-window.scss";
+@import "./service-block.scss";
+@import "./sidebar-menu.scss";
+@import "./technique-block.scss";
+@import "./swiper.scss";
 
-@font-face {
-  font-family: 'Comic';
-  src: url('../fonts/comic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
 
-body {
-  padding: 1rem;
-  margin: 0;
-  font-family: Comic, sans-serif;
-  background-color: $bgColor;
-  color: $text;
-}
+  // .swiper-slide__button::before {
+  //   left: 168px;
+  // }
+
+  // .swiper-slide__button {
+  //   width: 224px;
+  //   height: 72px;
+  //   margin-right: 24px;
+  //   margin-bottom: 16px;
+  // }
+
+  // .swiper-slide__button {
+  //   margin-right: 24px;
+  // }
+
+  // .swiper-slide__button:nth-child(3) {
+  //   margin-right: 0;
+  // }
+
+  // .swiper-slide__button {
+  //   width: 240px;
+  //   height: 72px;
+  //   margin-right: 32px;
+  //   margin-bottom: 16px;
+  // }

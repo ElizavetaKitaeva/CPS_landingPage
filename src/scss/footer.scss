@@ -1,0 +1,59 @@
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: $title-color;
+  mix-blend-mode: normal;
+  opacity: 0.72;
+
+  &::before {
+    background: $pseudo-color;
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: 16px;
+
+    @media (min-width: 1200px) {
+      width: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    margin-top: 32px;
+    position: relative;
+
+    p:first-child {
+      text-align: start;
+      width: 218px;
+
+    }
+
+    p:nth-child(2) {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    p:last-child {
+      text-align: end;
+      width: 213px;
+      cursor: pointer;
+    }
+
+    &::before {
+      position: absolute;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    padding-left: 24px;
+    padding-top: 31px;
+    padding-right: 24px;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+}

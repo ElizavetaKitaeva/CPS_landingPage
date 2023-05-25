@@ -34,6 +34,10 @@ module.exports = {
 
       // Компилируем SCSS в CSS
       {
+        test: /\.(sass|less|css)$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", 'sass-loader'],
+      },
+      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader, // Extract css to separate file
@@ -48,19 +52,44 @@ module.exports = {
         test: /\.(eot|ttf|woff|woff2)$/,
         use: [
           {
-            loader: 'file-loader?name=./fonts/[name].[ext]'
+            loader: 'file-loader',
+            options: {
+              query: {
+                name:'assets/[name].[ext]'
+              }
+            }
           },
         ]
       },
 
       // Подключаем картинки из css
       {
-        test: /\.(svg|png|jpg|jpeg|webp)$/,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
           {
-            loader: 'file-loader?name=./static/[name].[ext]'
+            loader: 'file-loader',
+            options: {
+              query: {
+                name:'assets/[name].[ext]'
+              }
+            }
           },
-        ]
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              query: {
+                mozjpeg: {
+                  progressive: true,
+                },
+                gifsicle: {
+                  interlaced: true,
+                },
+                optipng: {
+                  optimizationLevel: 7,
+                }
+              }
+            }
+          }]
       },
     ],
   },

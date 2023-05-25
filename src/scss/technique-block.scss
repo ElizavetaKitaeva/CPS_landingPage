@@ -1,0 +1,171 @@
+.technique__button {
+  justify-content: start;
+  cursor: pointer;
+  border: none;
+  margin-top: 16px;
+  background-color: $default-color;
+  display: none;
+
+  &:focus {
+    outline: none;
+  }
+
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 24px;
+    padding: 0;
+    margin-top: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: $text-color;
+  }
+
+  @media (min-width: 1200px) {
+    margin-left: 31px;
+  }
+}
+
+.technique {
+  margin-top: 24px;
+
+  &::before {
+    content: "";
+    display: block;
+    background: $pseudo-color;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 16px;
+  }
+}
+
+.technique-header {
+  padding-left: 16px;
+  padding-bottom: 16px;
+  background: linear-gradient(90deg, $linear-color 0%, $default-color 98.61%);
+
+  .technique-header__title {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    color: #7e7e82;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding-left: 32px;
+    background: linear-gradient(90deg, $linear-color 1.39%, $default-color 100%);
+  }
+}
+
+.swiper-slide__button-technique {
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  box-sizing: border-box;
+  width: 240px;
+  height: 160px;
+  padding: 0;
+  text-align: start;
+  background: $default-color;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:first-child {
+    margin-left: 16px;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  &:focus::after {
+    background: $button-color-hover url("../img/dropdown.svg") no-repeat 50% 50%;
+    transition: 0.5s;
+  }
+
+  &::after {
+    content: "";
+    background: $default-color url("../img/dropdown.svg") no-repeat 50% 50%;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid $button-color;
+    border-radius: 100px;
+    position: relative;
+    left: 184px;
+    top: 40px;
+  }
+
+  &:hover::after {
+    border: none;
+    background: $button-color-hover url("../img/dropdown.svg") no-repeat 50% 50%;
+    transition: 0.5s;
+  }
+
+  .swiper-slide__button-technique--text {
+    position: relative;
+    top: -30px;
+    left: 16px;
+  }
+}
+
+.technique-swiper {
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 24px;
+    height: 166px;
+    left: 100%;
+    transform: translate(-100%, 0);
+    z-index: 4;
+    background: linear-gradient(
+      270deg,
+      $default-color 16.84%,
+      rgba(248, 248, 248, 0.0001) 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 24px;
+    margin-left: 24px;
+    height: 160px;
+    overflow: hidden;
+  }
+
+}
+
+
+div .technique-slide {
+
+  @media (min-width: 768px) {
+    &:nth-child(n + 4) {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: auto;
+    height: auto;
+  
+    &:nth-child(n + 4) {
+      display: block;
+    }
+    &:nth-child(n + 5) {
+      display: none;
+    }
+
+  }
+}

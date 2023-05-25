@@ -1,0 +1,56 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $default-color;
+  font-family: $font-family;
+
+  @media (min-width: 1200px) {
+    display: flex;
+  }
+
+  @media (min-width: 1440px) {
+    justify-content: center;
+  }
+}
+
+header {
+  background-color: $default-color;
+
+  @media (min-width: 1200px) {
+    background-color: $linear-color;
+  }
+}
+
+main {
+  background-color: $default-color;
+  display: block;
+}
+
+ul {
+  padding: 0;
+}
+
+button {
+  &:active {
+    background: transparent;
+    border: none;
+  }
+}
+
+li {
+  border: 0;
+}
+
+.site-content {
+  @media (min-width: 1200px) {
+    border-left: 1px solid $pseudo-color;
+  }
+}
