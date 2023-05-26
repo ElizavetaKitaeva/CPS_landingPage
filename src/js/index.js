@@ -211,6 +211,8 @@ blurredArea.addEventListener('click', function() {
     sidebar.style.display = 'none';
     document.querySelector('.messages').style.display = null;
     document.querySelector('.calls').style.display = null;
+  } else {
+    sidebar.style.display = 'block';
   }
 });
 
