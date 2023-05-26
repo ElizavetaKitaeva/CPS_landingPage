@@ -4,6 +4,7 @@ import {Swiper, Pagination} from 'swiper';
 import '../../node_modules/swiper/swiper.css';
 import '../../node_modules/swiper/modules/pagination/pagination.scss';
 
+let init = false;
 let checkClickBrands = false;
 let checkClickTech = false;
 let checkOpenMenu = false;
@@ -15,27 +16,36 @@ let footerBlock = document.querySelector('footer');
 let blurredArea = document.querySelector('.blurred-area');
 let swiper;
 
-
 function swiperCard() {
   if (window.innerWidth < 768) {
-        swiper = new Swiper(".swiper", {
+    init = true;
+      swiper = new Swiper('.swiper', {
         modules: [Pagination],
         direction: "horizontal",
         slidesPerView: "auto",
         spaceBetween: 8,
-
+  
         pagination: {
           el: '.swiper-pagination',
           type: 'bullets',
           clickable: true
         },
       });
-      checkClickBrands = true;
-      openBrandsGrid(moreButtonBrands);  
+
+  checkClickBrands = true;
+  openBrandsGrid(moreButtonBrands);  
+  
+  } else if (init && window.innerWidth >= 768) {
+    console.log(swiper);
+    swiper[0].destroy();
+    swiper[1].destroy();
+    swiper[2].destroy();
+    init = false;
   }
 }
-
+  
 swiperCard();
+window.addEventListener("resize", swiperCard);
 
 
 function openBrandsGrid(moreButtonBrands) {

@@ -39,14 +39,12 @@ div .swiper {
 
     @media (min-width: 768px) {
       display: grid;
-      width: 100%;
+      width: 95%;
       min-width: 720px;
       max-width: 1056px;
       grid-template-columns: auto;
       grid-template-rows: auto auto auto auto auto auto;
-      margin: auto;
       padding-left: 16px;
-      padding-right: 16px;
     }
   
     @media (min-width: 1200px) {
@@ -77,9 +75,6 @@ div .swiper {
     position: static;
     margin-top: 16px;
 
-    @media (min-width: 768px) {
-        display: none;
-    }
   }
 
   .swiper-slide {
@@ -97,29 +92,12 @@ div .swiper {
       }
     }
 
-    
-    @media (min-width: 768px) {
-      // &::nth-child(n + 7) {
-      //   display: none;
-      // }
-    }
-
+  
     @media (min-width: 768px) {
       width: auto;
       height: auto;
     }
 
-    @media (min-width: 1200px) {
-    
-      // &:nth-child(n + 7) {
-      //   display: block;
-      // }
-    
-      // &:nth-child(n + 9) {
-      //   display: none;
-      // }
-
-    }
 
     @media (min-width: 1200px) {
       width: auto;

@@ -29,7 +29,7 @@
     box-sizing: border-box;
   }
 
-  @media (min-width: 1366px) {
+  @media (min-width: 768px) {
     position: absolute;
     left: -65px;
     top: 18px;
@@ -61,7 +61,7 @@
     position: absolute;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     height: 940px;
     width: 1px;
     background: $pseudo-color;
@@ -98,16 +98,12 @@
   }
 
   @media (min-width: 768px) {
-    box-shadow: 16px -10px 52px rgba(14, 24, 80, 0.2);
-    height: 970px;
-    width: 320px;
-  }
-
-  @media (min-width: 1200px) {
     right: 0;
     box-shadow: -2px 0px 4px rgba(69, 79, 126, 0.02),
       16px 0px 52px rgba(14, 24, 80, 0.2);
     padding-top: 0;
+    height: 970px;
+    width: 320px;
   }
 }
 
@@ -156,7 +152,7 @@
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     &::before {
       top: auto;
     }
@@ -166,7 +162,7 @@
 .modal-window__main {
   margin-top: 40px;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     margin-top: 18px;
   }
 }

@@ -107,13 +107,12 @@
     position: absolute;
   }
 
-  @media (min-width: 1366px) {
+  @media (min-width: 1200px) {
     &::before {
       margin-top: 0;
       border-radius: 2px;
     }
     border-left: 1px solid #e9fff9;
-    
   }
 }
 
