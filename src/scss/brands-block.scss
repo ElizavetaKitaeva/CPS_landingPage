@@ -122,6 +122,10 @@
 .lenovo, .lenovo:active {
   background: $default-color url("../img/lenovo.png") no-repeat 16px 50%;
   margin-left: 16px;
+
+  @media (min-width: 768px) {
+    margin-left: 0;
+  }
 }
 
 .samsung, .samsung:active {
