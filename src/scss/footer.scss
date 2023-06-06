@@ -15,8 +15,18 @@
     height: 1px;
     margin-bottom: 16px;
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1440px) {
       width: auto;
+    }
+  }
+
+  .footer__text {
+    &:nth-child(2) {
+      cursor: pointer;
+
+      &:hover {
+        color: $button-color;
+      }
     }
   }
 
@@ -49,7 +59,13 @@
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (min-width: 1440px) {
     padding-left: 24px;
     padding-top: 31px;
     padding-right: 24px;

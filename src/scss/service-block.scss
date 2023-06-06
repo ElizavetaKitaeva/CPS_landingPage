@@ -1,32 +1,4 @@
-.service-title {
-  display: flex;
-  align-items: center;
-  margin-left: 16px;
-  justify-content: start;
-  // margin-top: 24px;
-  margin-top: 0;
 
-  .service-title__name {
-    font-size: 28px;
-    line-height: 40px;
-    letter-spacing: -0.6px;
-    color: $text-color;
-
-    @media (min-width: 1200px) {
-      margin: 0;
-    }
-  }
-
-  @media (min-width: 768px) {
-    margin-left: 24px;
-  }
-
-  @media (min-width: 1200px) {
-    order: -1;
-    margin-left: 34px;
-  }
-
-}
 
 .swiper-services__button {
   background: $button-color;
@@ -47,14 +19,6 @@
   top: 152px;
   border: none;
   cursor: pointer;
-
-  &:focus {
-    background: $button-color;
-    border: none;
-    opacity: 0.7;
-    transition: 0.5s;
-    outline: none;
-  }
 
   &::after {
     border-radius: 20px;
@@ -106,7 +70,7 @@
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     background: $button-color;
     border-radius: 16px;
     width: 119px;
@@ -143,29 +107,101 @@
     background: $pseudo-color;
     width: 100%;
     height: 1px;
-    margin-bottom: 16px;
+
+    @media (min-width: 1440px) {
+      width: 1154px;
+      position: absolute;
+      margin-left: -34px;
+    }
   }
 
   .swiper-slide {
-    &::after {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 96%;
-      margin: auto;
-      background: $border-color;
+
+    &:nth-child(4) {
+      order: -1;
+      @media (min-width: 768px) {
+        order: 0;
+      }
     }
+
+    @media (min-width: 768px) {
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        margin: auto;
+        background: $border-color;
+      }
+    }
+
 
     &:last-child::after {
       display: none;
     }
 
+    // &:first-child {
+    //   font-size: 14px;
+    //   line-height: 16px;
+    //   color: $title-color;
+    //   opacity: 0.72;
+    // }
+
     &:first-child {
-      font-size: 14px;
-      line-height: 16px;
-      color: $title-color;
-      opacity: 0.72;
+      p {
+    
+        &:first-child::before {
+          content: "Ремонтные услуги";
+          display: block;
+          font-size: 14px;
+          line-height: 16px;
+          color: $title-color;
+          mix-blend-mode: normal;
+          opacity: 0.72;
+
+          @media (min-width: 768px) {
+            position: absolute;
+            top: -56px;
+          }
+        }
+    
+        &:nth-child(2)::before {
+          content: "Цена";
+          display: block;
+          font-size: 14px;
+          line-height: 16px;
+          color: $title-color;
+          mix-blend-mode: normal;
+          opacity: 0.72;
+          @media (min-width: 768px) {
+            position: absolute;
+            top: -56px;
+          }
+        }
+    
+        &:nth-child(3)::before {
+          content: "Срок";
+          display: block;
+          font-size: 14px;
+          line-height: 16px;
+          color: $title-color;
+          mix-blend-mode: normal;
+          opacity: 0.72;
+          @media (min-width: 768px) {
+            position: absolute;
+            top: -56px;
+          }
+        }
+      }
     }
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 24px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-left: 0;
   }
 }
 
@@ -200,7 +236,7 @@
     cursor: pointer;
     position: relative;
     border: none;
-    background-color: $default-color;
+    background-color: transparent;
 
     &::after {
       content: "";
@@ -215,8 +251,6 @@
 
     &:focus {
       outline: none;
-      color: $button-color;
-      transition: 0.5s;
     }
 
     &:hover {
@@ -244,13 +278,13 @@
   }
 
   @media (min-width: 768px) {
-    margin-left: 24px;
+    margin-left: 0;
   }
 }
 
 .service-header {
-  padding-left: 16px;
   padding-bottom: 16px;
+  padding-top: 16px;
   background: linear-gradient(90deg, $linear-color 0%, $default-color 98.61%);
 
   .service-header__title {
@@ -261,6 +295,16 @@
     color: $title-color;
     font-weight: 300;
     margin: 0;
+    margin-left: 16px;
+    
+    @media (min-width: 768px) {
+      margin-left: 0;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    // position: absolute;
+    // width: 1190px;
   }
 }
 
@@ -286,9 +330,9 @@
   }
 
   .swiper-slide {
-    &:first-child {
-      display: none;
-    }
+    // &:first-child {
+    //   display: none;
+    // }
 
     @media (min-width: 768px) {
       &:first-child {
@@ -299,12 +343,15 @@
 
   @media (min-width: 768px) {
       height: 100%;
+      padding-right: 24px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     display: block;
     padding: 23px 24px;
     margin-left: 0;
+    padding-top: 43px !important;
+    margin-top: 0;
   }
 
 }
@@ -318,17 +365,29 @@
   color: $text-color;
   width: 260px;
   height: 200px;
-  background: $default-color;
   border-radius: 6px;
   padding: 16px;
+  margin-bottom: 16px;
+  background: #fff;
+  margin-right: 8px;
 
   &:first-child {
-    margin-left: 16px;
+    margin-left: 8px;
+
+    @media (min-width: 768px) {
+      margin-left: 0;
+    }
+  }
+
+  .swiper-services__text {
+    margin-bottom: 16px;
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 
   p {
     margin: 0;
-    margin-bottom: 16px;
 
     &:first-child::before {
       content: "Ремонтные услуги";
@@ -348,6 +407,7 @@
       color: $title-color;
       mix-blend-mode: normal;
       opacity: 0.72;
+
     }
 
     &:nth-child(3)::before {
@@ -380,11 +440,9 @@
       }
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1440px) {
       display: block;
       text-align: start;
-      margin-bottom: 23px;
-
     }
   }
 
@@ -400,10 +458,12 @@
     align-items: center;
     height: auto;
     padding: 0;
-    margin-bottom: 47px;
+    background:transparent;
+    margin-left: 0;
+    margin-bottom: 23px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     display: grid;
     grid-template-columns: 348px 74px 81px 120px;
     font-size: 14px;
@@ -414,6 +474,7 @@
     width: 100%;
     align-items: baseline;
     height: auto;
+    margin-bottom: 16px;
   }
   
 }

@@ -3,50 +3,45 @@ import '../../node_modules/normalize.css/normalize.css';
 import {Swiper, Pagination} from 'swiper';
 import '../../node_modules/swiper/swiper.css';
 import '../../node_modules/swiper/modules/pagination/pagination.scss';
-
-let init = false;
 let checkClickBrands = false;
 let checkClickTech = false;
 let checkOpenMenu = false;
+let checkOpenModalWindow = false;
 let moreButtonBrands = document.querySelector('.brands__button');
 let moreButtonTech = document.querySelector('.technique__button');
 let sidebar = document.querySelector('.sidebar');
 let mainWindow = document.querySelector('.main');
 let footerBlock = document.querySelector('footer');
+let menuOpenBtn = document.querySelector('.burger');
 let blurredArea = document.querySelector('.blurred-area');
+let menuExitBtn = document.querySelector('.sidebar__burger');
+let BtnExit = document.querySelector('.modal-window__burger');
+let messageBtn = document.querySelectorAll('.message');
+let phoneBtn = document.querySelectorAll('.phone');
+let borderNavigationLink = document.querySelectorAll('.navigation-block__menu--link');
+let pseudoElementMainLink = document.querySelectorAll('.sidebar__main__link');
+let infoContentBtn = document.querySelector('.info-block__content--button');
 let swiper;
 
 function swiperCard() {
   if (window.innerWidth < 768) {
-    init = true;
       swiper = new Swiper('.swiper', {
         modules: [Pagination],
         direction: "horizontal",
         slidesPerView: "auto",
-        spaceBetween: 8,
   
         pagination: {
           el: '.swiper-pagination',
           type: 'bullets',
           clickable: true
-        },
+        }
       });
-
-  checkClickBrands = true;
-  openBrandsGrid(moreButtonBrands);  
-  
-  } else if (init && window.innerWidth >= 768) {
-    console.log(swiper);
-    swiper[0].destroy();
-    swiper[1].destroy();
-    swiper[2].destroy();
-    init = false;
+    checkClickBrands = true;
+    openBrandsGrid(moreButtonBrands);  
   }
 }
-  
-swiperCard();
-window.addEventListener("resize", swiperCard);
 
+swiperCard();
 
 function openBrandsGrid(moreButtonBrands) {
   let textButtonMore = moreButtonBrands.querySelector('.brands__button__text');
@@ -54,33 +49,43 @@ function openBrandsGrid(moreButtonBrands) {
   let cardView = document.querySelectorAll('.swiper-slide');
   let imgButtonMore = moreButtonBrands.querySelector('.brands__button__img');
 
-    switch (checkClickBrands) {
+  switch (checkClickBrands) {
 
-      case false:
-        checkClickBrands = true;
-        swiperHeight.style.height = 'auto';
-        textButtonMore.textContent = 'Скрыть';
-        imgButtonMore.style.transform = 'rotate(180deg)';
-        cardView.forEach(element => {
-          element.style.display = 'block';
-        });
-        break;
+    case false:
+      checkClickBrands = true;
+      swiperHeight.style.height = 'auto';
+      textButtonMore.textContent = 'Скрыть';
+      imgButtonMore.style.transform = 'rotate(180deg)';
+      cardView.forEach(element => {
+        element.style.display = 'block';
+      });
+      break;
 
-      case true:
-        checkClickBrands = false;
-        swiperHeight.style.height = "";
-        textButtonMore.textContent = 'Показать все';
-        imgButtonMore.style.transform = null;
-        cardView.forEach(element => {
-          element.style.display = "";
-        });
-        break;
+    case true:
+      checkClickBrands = false;
+      swiperHeight.style.height = "";
+      textButtonMore.textContent = 'Показать все';
+      imgButtonMore.style.transform = null;
+      cardView.forEach(element => {
+        element.style.display = "";
+      });
+      break;
 
-      default:
-        checkClickBrands = true;
-        break;
-    }
+    default:
+      checkClickBrands = true;
+      break;
+  }
 }
+
+function resizeOpenMenu() {
+  if (window.innerWidth < 1440) {
+    sidebar.style.display = 'none';
+  } else {
+    sidebar.style.display = 'block';
+  }
+}
+
+window.addEventListener('resize', resizeOpenMenu)
 
 moreButtonBrands.addEventListener('click', function() {
   openBrandsGrid(moreButtonBrands);
@@ -93,41 +98,38 @@ function openTechGrid(moreButtonTech) {
   let cardView = techBlock.querySelectorAll('.swiper-slide');
   let imgButtonMore = moreButtonTech.querySelector('.technique__button__img');
 
-    switch (checkClickTech) {
+  switch (checkClickTech) {
 
-      case false:
-        checkClickTech = true;
-        swiperHeight.style.height = 'auto';
-        textButtonMore.textContent = 'Скрыть';
-        imgButtonMore.style.transform = 'rotate(180deg)';
-        cardView.forEach(element => {
-          element.style.display = 'block';
-        });
-        break;
+    case false:
+      checkClickTech = true;
+      swiperHeight.style.height = 'auto';
+      textButtonMore.textContent = 'Скрыть';
+      imgButtonMore.style.transform = 'rotate(180deg)';
+      cardView.forEach(element => {
+        element.style.display = 'block';
+      });
+      break;
 
-      case true:
-        checkClickTech = false;
-        swiperHeight.style.height = "";
-        textButtonMore.textContent = 'Показать все';
-        imgButtonMore.style.transform = null;
-        cardView.forEach(element => {
-          element.style.display = "";
-        });
-        break;
+    case true:
+      checkClickTech = false;
+      swiperHeight.style.height = "";
+      textButtonMore.textContent = 'Показать все';
+      imgButtonMore.style.transform = null;
+      cardView.forEach(element => {
+        element.style.display = "";
+      });
+      break;
 
-      default:
-        checkClickTech = true;
-        break;
-    }
+    default:
+      checkClickTech = true;
+      break;
+  }
 }
 
 moreButtonTech.addEventListener('click', function() {
   openTechGrid(moreButtonTech);
 });
 
-
-
-let infoContentBtn = document.querySelector('.info-block__content--button');
 
 infoContentBtn.addEventListener('click', function() {
   let infoContentText = document.querySelector('.info-block__content--text-block');
@@ -136,37 +138,36 @@ infoContentBtn.addEventListener('click', function() {
   infoContentButton.style.display = 'none';
 });
 
-
-
-let menuOpenBtn = document.querySelector('.burger');
 menuOpenBtn.addEventListener('click', function(){
   menuOpenFunction();
 });
 
+function deleteMainContent() {
+  if (window.innerWidth < 768) {
+    footerBlock.style.display = 'none';
+    mainWindow.style.height = '550px';
+    mainWindow.style.overflow = 'hidden';
+  } else if (window.innerWidth < 1440 && window.innerWidth > 768) {
+    footerBlock.style.display = 'none';
+    mainWindow.style.height = '850px';
+    mainWindow.style.overflow = 'hidden';
+  }
+}
+
 function menuOpenFunction() {
   sidebar.style.display = 'block';
-  if (window.innerWidth < 768) {
-    mainWindow.style = 'display: none';
-  } else {
-    blurredArea.style.display = 'block';
-    mainWindow.style = 'overflow: hidden';
-    mainWindow.style.height = '800px';
-    footerBlock.style = 'display: none';
-  }
+  blurredArea.style.display = 'block';
+  deleteMainContent();
   checkOpenMenu = true;
 }
 
-let menuExitBtn = document.querySelector('.sidebar__burger');
 menuExitBtn.addEventListener('click', function(){
   sidebar.style.display = 'none';
-  mainWindow.style = 'display: block';
   blurredArea.style = 'display: none';
+  mainWindow.style.height = 'auto';
   footerBlock.style = 'display: block';
   checkOpenMenu = false;
 });
-
-let messageBtn = document.querySelectorAll('.message');
-let phoneBtn = document.querySelectorAll('.phone');
 
 messageBtn.forEach(element => {
   element.addEventListener('click', function(){
@@ -174,13 +175,12 @@ messageBtn.forEach(element => {
     document.querySelector('.modal-window__title').textContent = 'Обратная связь';
     document.querySelector('.calls').style = 'display: none';
     document.querySelector('.modal-window').style.display = 'block';
+    deleteMainContent();
     if (checkOpenMenu == true) {
       sidebar.style.display = 'none';
+      checkOpenModalWindow = true;
     } else {
       blurredArea.style = 'display: block';
-      mainWindow.style = 'overflow: hidden';
-      mainWindow.style.height = '800px';
-      footerBlock.style = 'display: none';
     }
   });
 })
@@ -191,76 +191,87 @@ phoneBtn.forEach(element => {
     document.querySelector('.modal-window__title').textContent = 'Заказать звонок';
     document.querySelector('.modal-window').style.display = 'block';
     document.querySelector('.messages').style = 'display: none';
+    deleteMainContent();
     if (checkOpenMenu == true) {
       sidebar.style.display = 'none';
+      checkOpenModalWindow = true;
     } else {
       blurredArea.style = 'display: block';
-      mainWindow.style = 'overflow: hidden';
-      mainWindow.style.height = '800px';
-      footerBlock.style = 'display: none';
     }
   });
 });
 
-blurredArea.addEventListener('click', function() {
-  document.querySelector('.modal-window').style.display = 'none';
-  blurredArea.style = 'display: none';
-  mainWindow.style = 'display: block';
-  footerBlock.style = 'display: block';
-  if (window.innerWidth < 1200) {
-    sidebar.style.display = 'none';
-    document.querySelector('.messages').style.display = null;
-    document.querySelector('.calls').style.display = null;
-  } else {
-    sidebar.style.display = 'block';
-  }
-});
-
-let BtnExit = document.querySelector('.modal-window__burger');
-BtnExit.addEventListener('click', function(){
+function exitClickBlurredArea () {
   document.querySelector('.modal-window').style.display = 'none';
   document.querySelector('.messages').style.display = null;
   document.querySelector('.calls').style.display = null;
-  if (checkOpenMenu == true) {
-    sidebar.style.display = 'block';
+  if (window.innerWidth < 1440) {
+    blurredArea.style = 'display: none';
+    sidebar.style.display = 'none';
+    mainWindow.style.height = 'auto';
+    footerBlock.style = 'display: block';
   } else {
+    blurredArea.style = 'display: none';
+    sidebar.style.display = 'block';
+  }
+}
+
+blurredArea.addEventListener('click', exitClickBlurredArea);
+
+
+function exitModalWindow() {
+  document.querySelector('.modal-window').style.display = 'none';
+  document.querySelector('.messages').style.display = null;
+  document.querySelector('.calls').style.display = null;
+  checkOpenModalWindow = false;
     blurredArea.style = 'display: none';
     mainWindow.style = 'display: block';
     footerBlock.style = 'display: block';
-  }
-});
+    if (window.innerWidth < 1440) {
+      sidebar.style.display = 'none';
+      mainWindow.style.height = 'auto';
+      footerBlock.style = 'display: block';
+    } else {
+      sidebar.style.display = 'block';
+    }
+}
+
+BtnExit.addEventListener('click', exitModalWindow);
 
 
-let borderNavigationLink = document.querySelectorAll('.navigation-block__menu--link');
-borderNavigationLink.forEach(element => {
-  element.style.border = 'none';
-});
-borderNavigationLink[0].style.border = null;
+  borderNavigationLink[0].style.border = '2px solid #b8ffec';
+  borderNavigationLink[0].style.background = '#ffffff';
 
-borderNavigationLink.forEach(element => {
-  element.addEventListener('click', function() {
-    borderNavigationLink.forEach(element => {
-      element.style.border = 'none';
+  borderNavigationLink.forEach(element => {
+    element.addEventListener('click', function() {
+      borderNavigationLink.forEach(element => {
+        element.style.border = null;
+        element.style.background = null;
+      });
+      element.style.border = '2px solid #b8ffec';
+      element.style.background = '#ffffff';
     });
-    element.style.border = null;
   });
-});
 
 
-let pseudoElementMainLink = document.querySelectorAll('.sidebar__main__link');
-pseudoElementMainLink.forEach(element => {
-  element.style.border= 'transparent';
-});
-pseudoElementMainLink[1].style.border = null;
-
-
-pseudoElementMainLink.forEach(element => {
-  element.addEventListener('click', function() {
-    pseudoElementMainLink.forEach(element => {
-      element.style.border = 'transparent';
+  pseudoElementMainLink.forEach(element => {
+    element.classList.remove('active');
+  });
+  pseudoElementMainLink[1].classList.add('active');
+  pseudoElementMainLink.forEach(element => {
+    element.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+      pseudoElementMainLink.forEach(element => {
+        element.classList.remove('active');
+      });
+      element.classList.add('active');
+    }
     });
-    element.style.border = null;
-    element.style.color = '$title-color';
+    element.addEventListener('click', function(e) {
+      pseudoElementMainLink.forEach(element => {
+        element.classList.remove('active');
+      });
+      element.classList.add('active');
+    });
   });
-});
 

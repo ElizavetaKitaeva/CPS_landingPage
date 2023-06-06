@@ -9,29 +9,29 @@ html {
 }
 
 body {
-  background-color: $default-color;
   font-family: $font-family;
-
-  @media (min-width: 1200px) {
-    display: flex;
-  }
+  background: #f8f8f8;
 
   @media (min-width: 1440px) {
+    display: flex;
     justify-content: center;
   }
 }
 
 header {
-  background-color: $default-color;
+  background: #f8f8f8;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     background-color: $linear-color;
   }
 }
 
 main {
-  background-color: $default-color;
   display: block;
+}
+
+.main {
+  background: #f8f8f8;
 }
 
 ul {
@@ -49,8 +49,16 @@ li {
   border: 0;
 }
 
+footer {
+  background: #f8f8f8;
+}
+
 .site-content {
-  @media (min-width: 1200px) {
+  box-sizing: content-box;
+  @media (min-width: 1440px) {
     border-left: 1px solid $pseudo-color;
+    padding-top: 42px;
+    width: 1120px;
+    background: #f8f8f8;
   }
 }

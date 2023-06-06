@@ -3,16 +3,21 @@
   cursor: pointer;
   border: none;
   margin-top: 16px;
-  background-color: $default-color;
+  background-color: transparent;
   display: none;
 
   &:focus {
     outline: none;
   }
 
+  .technique__button__text {
+    margin: 0;
+  }
+
 
   @media (min-width: 768px) {
     display: block;
+    margin-top: 24px;
   }
 
   @media (min-width: 768px) {
@@ -20,7 +25,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 24px;
     padding: 0;
     margin-top: 24px;
     font-weight: 500;
@@ -30,8 +34,7 @@
     color: $text-color;
   }
 
-  @media (min-width: 1200px) {
-    margin-left: 31px;
+  @media (min-width: 1440px) {
   }
 }
 
@@ -44,13 +47,26 @@
     background: $pseudo-color;
     width: 100%;
     height: 1px;
-    margin-bottom: 16px;
+
+    @media (min-width: 1440px) {
+      width: 1154px;
+      position: absolute;
+      margin-left: -34px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 24px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-left: 0;
   }
 }
 
 .technique-header {
-  padding-left: 16px;
   padding-bottom: 16px;
+  padding-top: 16px;
   background: linear-gradient(90deg, $linear-color 0%, $default-color 98.61%);
 
   .technique-header__title {
@@ -61,11 +77,17 @@
     color: #7e7e82;
     font-weight: 300;
     margin: 0;
+    margin-left: 16px;
+
+    @media (min-width: 768px) {
+      margin-left: 0;
+    }
   }
 
-  @media (min-width: 1200px) {
-    padding-left: 32px;
+  @media (min-width: 1440px) {
     background: linear-gradient(90deg, $linear-color 1.39%, $default-color 100%);
+    // position: absolute;
+    // width: 100%;
   }
 }
 
@@ -80,20 +102,19 @@
   background: $default-color;
   border-radius: 6px;
   cursor: pointer;
+  margin-right: 16px;
 
   &:first-child {
-    margin-left: 16px;
+    // margin-left: 16px;
   }
 
   &:focus {
     outline: none;
     border: none;
+    background: $default-color;
+    border: 1px solid $border-color;
   }
 
-  &:focus::after {
-    background: $button-color-hover url("../img/dropdown.svg") no-repeat 50% 50%;
-    transition: 0.5s;
-  }
 
   &::after {
     content: "";
@@ -106,6 +127,11 @@
     position: relative;
     left: 184px;
     top: 40px;
+
+    
+    @media (min-width: 768px) {
+      left: 168px;
+    }
   }
 
   &:hover::after {
@@ -118,6 +144,15 @@
     position: relative;
     top: -30px;
     left: 16px;
+  }
+
+  @media (min-width: 768px) {
+    width: 224px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 240px;
+    margin-right: 0;
   }
 }
 
@@ -140,9 +175,9 @@
 
   @media (min-width: 768px) {
     margin-top: 24px;
-    margin-left: 24px;
     height: 160px;
     overflow: hidden;
+    padding-left: 0;
   }
 
 }
@@ -150,13 +185,21 @@
 
 div .technique-slide {
 
+  &:first-child {
+    margin-left: 16px;
+
+    @media (min-width: 768px) {
+      margin-left: 0;
+    }
+  }
+
   @media (min-width: 768px) {
     &:nth-child(n + 4) {
       display: none;
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1000px) {
     width: auto;
     height: auto;
   

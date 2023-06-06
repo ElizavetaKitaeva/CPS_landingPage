@@ -11,9 +11,8 @@
     margin: auto;
   }
 
-  @media (min-width: 1200px) {
-    margin: auto;
-    min-width: 880px;
-    max-width: 1120px;
+  @media (min-width: 1440px) {
+    width: 1120px;
+    padding-left: 34px;
   }
 }
