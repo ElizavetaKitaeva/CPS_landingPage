@@ -14,12 +14,12 @@ let mainWindow = document.querySelector('.main');
 let footerBlock = document.querySelector('footer');
 let menuOpenBtn = document.querySelector('.burger');
 let blurredArea = document.querySelector('.blurred-area');
-let menuExitBtn = document.querySelector('.sidebar__burger');
-let BtnExit = document.querySelector('.modal-window__burger');
-let messageBtn = document.querySelectorAll('.message');
-let phoneBtn = document.querySelectorAll('.phone');
+let menuExitBtn = document.querySelector('.sidebar__button--burger');
+let BtnExit = document.querySelector('.modal-window__button--burger');
+let messageBtn = document.querySelectorAll('.button-message');
+let phoneBtn = document.querySelectorAll('.button-phone');
 let borderNavigationLink = document.querySelectorAll('.navigation-block__menu--link');
-let pseudoElementMainLink = document.querySelectorAll('.sidebar__main__link');
+let pseudoElementMainLink = document.querySelectorAll('.sidebar__link');
 let infoContentBtn = document.querySelector('.info-block__content--button');
 let swiper;
 
@@ -173,7 +173,7 @@ messageBtn.forEach(element => {
   element.addEventListener('click', function(){
     blurredArea.style = 'display: block';
     document.querySelector('.modal-window__title').textContent = 'Обратная связь';
-    document.querySelector('.calls').style = 'display: none';
+    document.querySelector('.modal-window__form--calls').style = 'display: none';
     document.querySelector('.modal-window').style.display = 'block';
     deleteMainContent();
     if (checkOpenMenu == true) {
@@ -190,7 +190,7 @@ phoneBtn.forEach(element => {
     blurredArea.style = 'display: block';
     document.querySelector('.modal-window__title').textContent = 'Заказать звонок';
     document.querySelector('.modal-window').style.display = 'block';
-    document.querySelector('.messages').style = 'display: none';
+    document.querySelector('.modal-window__form--messages').style = 'display: none';
     deleteMainContent();
     if (checkOpenMenu == true) {
       sidebar.style.display = 'none';
@@ -203,8 +203,8 @@ phoneBtn.forEach(element => {
 
 function exitClickBlurredArea () {
   document.querySelector('.modal-window').style.display = 'none';
-  document.querySelector('.messages').style.display = null;
-  document.querySelector('.calls').style.display = null;
+  document.querySelector('.modal-window__form--messages').style.display = null;
+  document.querySelector('.modal-window__form--calls').style.display = null;
   if (window.innerWidth < 1440) {
     blurredArea.style = 'display: none';
     sidebar.style.display = 'none';
@@ -221,8 +221,8 @@ blurredArea.addEventListener('click', exitClickBlurredArea);
 
 function exitModalWindow() {
   document.querySelector('.modal-window').style.display = 'none';
-  document.querySelector('.messages').style.display = null;
-  document.querySelector('.calls').style.display = null;
+  document.querySelector('.modal-window__form--messages').style.display = null;
+  document.querySelector('.modal-window__form--calls').style.display = null;
   checkOpenModalWindow = false;
     blurredArea.style = 'display: none';
     mainWindow.style = 'display: block';

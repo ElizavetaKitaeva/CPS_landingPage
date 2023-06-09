@@ -19,11 +19,6 @@
     }
   }
 
-  @media (min-width: 1440px) {
-    height: 100vh;
-    border-left: 1px solid #d9fff5;
-  }
-
   .sidebar__container {
     width: 284px;
     margin-left: 18px;
@@ -39,6 +34,84 @@
     }
   }
 
+  .sidebar__button {
+    background-color: $button-color;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+  
+    &:hover {
+      opacity: 0.7;
+      transition: 0.5s;
+    }
+  
+    &:focus {
+      opacity: 0.7;
+      transition: 0.5s;
+      outline: none;
+      border: none;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.sidebar__button {
+      background-color: $button-color;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: relative;
+      padding: 11px;
+      cursor: pointer;
+      border: none;
+      box-sizing: border-box;
+      margin-right: 16px;
+      margin-left: -1px;
+
+      &:active {
+        background-color: $button-color;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        padding: 11px;
+        cursor: pointer;
+        border: none;
+        box-sizing: border-box;
+      }
+
+      &.sidebar__button--burger {
+        background: $button-color url("../img/exit.svg") no-repeat 50% 50%;
+      }
+      
+      &.button-phone {
+        background: $button-color url("../img/phone.png") no-repeat 50% 50%;
+      }
+        
+      &.button-message {
+        background: $button-color url("../img/message.png") no-repeat 50% 50%;
+      }
+        
+      &.button-user {
+        background: $button-color url("../img/user.png") no-repeat 50% 50%;
+      }
+      &.sidebar__button--search{
+        background: $button-color url("../img/search.png") no-repeat 50% 50%;
+      }
+
+      &.sidebar__button--burger{
+        @media (min-width: 1440px) {
+          display: none;
+        }
+      }
+    }
+  }
+
   @media (min-width: 768px) {
     box-shadow: -2px 0 4px 0 rgba(69,79,126,.02), 16px 0 52px 0 rgba(14,24,80,.2);
     width: 320px;
@@ -51,6 +124,7 @@
     box-shadow: none;
     z-index: 1;
     height: auto;
+    border-left: 1px solid #d9fff5;
   }
   
 }
@@ -58,7 +132,7 @@
 .sidebar__main {
   margin-top: 50.27px;
 
-  .sidebar__main__list{
+  .sidebar__list{
     list-style-type: none;
     font-size: 16px;
 
@@ -68,7 +142,7 @@
     }
   }
 
-  .sidebar__main__link {
+  .sidebar__link {
     text-decoration: none;
     color: black;
     display: block;
@@ -110,124 +184,26 @@
     }
   }
 
-  .sidebar__main__form {
+  .sidebar__form {
     list-style-type: none;
   }
 }
 
-.sidebar__header__navigation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .sidebar__header__block {
+.sidebar-header {
+  .sidebar-header__navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .sidebar__header__button {
-    background-color: $button-color;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-    border: none;
-    box-sizing: border-box;
-
-    &:hover {
-      opacity: 0.7;
-      transition: 0.5s;
-    }
-
-    &:focus {
-      opacity: 0.7;
-      transition: 0.5s;
-      outline: none;
-      border: none;
-    }
+  .sidebar-header__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  .sidebar__burger {
-    background-color: $button-color;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: relative;
-    padding: 11px;
-    cursor: pointer;
-    border: none;
-    box-sizing: border-box;
-    margin-right: 16px;
-    margin-left: -1px;
-    background: $button-color url("../img/exit.svg") no-repeat 50% 50%;
-
-    &:active {
-      background-color: $button-color;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      position: relative;
-      padding: 11px;
-      cursor: pointer;
-      border: none;
-      box-sizing: border-box;
-    }
-
-    @media (min-width: 1440px) {
-      display: none;
-    }
-  }
-
 }
 
-.sidebar__main__button {
-  background-color: $button-color;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  position: relative;
-  cursor: pointer;
-  border: none;
-  box-sizing: border-box;
-  margin-right: 16px;
-
-  &:hover {
-    opacity: 0.7;
-    transition: 0.5s;
-  }
-
-  &:focus {
-    opacity: 0.7;
-    transition: 0.5s;
-    outline: none;
-    border: none;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  .phone {
-    background: $button-color url("../img/phone.png") no-repeat 50% 50%;
-  }
-  
-  .message {
-    background: $button-color url("../img/message.png") no-repeat 50% 50%;
-  }
-  
-  .user {
-    background: $button-color url("../img/user.png") no-repeat 50% 50%;
-  }
-  
-  .search{
-    background: $button-color url("../img/search.png") no-repeat 50% 50%;
-  }
-
-}
-
-.sidebar__main__label{
+.sidebar__label{
   cursor: pointer;
   margin-right: 7px;
 
@@ -236,7 +212,7 @@
   }
 }
 
-.sidebar__main__input {
+.sidebar__input {
   border: none;
   outline: none;
 
@@ -250,11 +226,11 @@
   }
 }  
 
-.mail {
+.sidebar__input--mail {
   margin-top: 16px;
 }
 
-.number {
+.sidebar__input--number {
   font-size: 24px;
   line-height: 32px;
   font-weight: bold;
@@ -266,15 +242,15 @@
   
 }
 
-.sidebar__main__bottons-block {
+.sidebar__bottons-block {
   display: flex;
 }
 
-.sidebar__main__form {
+.sidebar__form {
   display: flex;
   margin-top: 40px;
 
-  .sidebar__main__radio {
+  .sidebar__radio {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -284,13 +260,13 @@
       outline: none;
     }
 
-    &:checked + .sidebar__main__label {
+    &:checked + .sidebar__label {
       color: $title-color;
     }
   }
 }
 
-.sidebar__main__block {
+.sidebar__block {
   @media (min-width: 768px) {
     position: relative;
     margin-top: 268px;
@@ -311,20 +287,3 @@
   z-index: 3;
   display: none;
 }
-
-.phone {
-  background: $button-color url("../img/phone.png") no-repeat 50% 50%;
-}
-
-.message {
-  background: $button-color url("../img/message.png") no-repeat 50% 50%;
-}
-
-.user {
-  background: $button-color url("../img/user.png") no-repeat 50% 50%;
-}
-
-.search {
-  background: $button-color url("../img/search.png") no-repeat 50% 50%;
-}
-

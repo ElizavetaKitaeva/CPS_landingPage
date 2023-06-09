@@ -1,87 +1,225 @@
 .header {
-  @media (min-width: 1440px) {
-    justify-content: space-between;
+
+  .header__navigation {
     display: flex;
     align-items: center;
-    padding-right: 30px;
-  }
-}
-
-.header__navigation {
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  min-width: 320px;
-  max-width: 768px;
-  background: $default-color;
-  justify-content: space-between;
-
-  &::after {
-    content: "";
-    display: block;
+    position: relative;
     width: 100%;
-    height: 1px;
-    background: $pseudo-color;
-    position: absolute;
-    top: 100%;
+    min-width: 320px;
+    max-width: 768px;
+    background: $default-color;
+    justify-content: space-between;
+  
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: $pseudo-color;
+      position: absolute;
+      top: 100%;
+    }
+  
+    @media (min-width: 768px) {
+      width: 100%;
+      min-width: 768px;
+      max-width: 1440px;
+    }
+  
+    @media (min-width: 1440px) {
+      width: auto;
+      min-width: auto;
+  
+      &::after {
+        display: none;
+      }
+    }
+  
+  }
+
+  // .header__button {
+  //   display: flex;
+  //   align-items: center;
+  //   padding: 0;
+  //   border: none;
+  //   cursor: pointer;
+  //   background-color: $button-color;
+  //   width: 40px;
+  //   height: 40px;
+  //   border-radius: 50%;
+  //   position: relative;
+  //   box-sizing: border-box;
+  //   margin-right: 16px;
+
+  //   &:active {
+  //     background-color: $button-color;
+  //     width: 40px;
+  //     height: 40px;
+  //     border-radius: 50%;
+  //     position: relative;
+  //     cursor: pointer;
+  //     border: none;
+  //     box-sizing: border-box;
+  //   }
+  // }
+
+  .header__text {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: $text-color;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    @media (min-width: 1440px) {
+      margin-right: 8px;
+      display: block;
+    }
   }
 
   .header__button {
-    display: flex;
-    align-items: center;
+
     margin-bottom: 24px;
     margin-top: 24px;
-    padding: 0;
     border: none;
-    cursor: pointer;
+
+    &:nth-child(-n+3) {
     background-color: $button-color;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     position: relative;
+    padding: 11px;
+    cursor: pointer;
+    border: none;
     box-sizing: border-box;
-    margin-right: 16px;
+    }
 
-    &:active {
+    &:focus {
+      outline: none;
+      width: 40px;
+      height: 40px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+
+    &:nth-child(-n + 3) {
+      display: none;
+    }
+
+    &.button-phone {
+      background: $button-color url("../img/phone.png") no-repeat 50% 50%;
+      &:focus {
+        background: $button-color url("../img/phone.png") no-repeat 50% 50%;
+      }
+      &:active {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    
+    &.button-message {
+      background: $button-color url("../img/message.png") no-repeat 50% 50%;
+      &:focus {
+        background: $button-color url("../img/message.png") no-repeat 50% 50%;
+      }
+      &:active {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    
+    &.button-user {
+      background: $button-color url("../img/user.png") no-repeat 50% 50%;
+      &:focus {
+        background: $button-color url("../img/user.png") no-repeat 50% 50%;
+      }
+      &:active {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &.repair {
+
+      background-color: transparent;
+
+      &::after {
+        content: "";
+        display: block;
+        background-color: $button-color;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        padding: 11px;
+        cursor: pointer;
+        border: none;
+        box-sizing: border-box;
+        background: $button-color url("../img/repair.svg") no-repeat 50% 50%;
+      }
+    }
+
+    &.checkstatus {
+      margin-right: 0;
+      background-color: transparent;
+      &::after {
+        content: "";
+        background-color: $button-color;
+        width: 40px;
+        display: block;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        padding: 11px;
+        cursor: pointer;
+        border: none;
+        box-sizing: border-box;
+        background: $button-color url("../img/checkstatus.svg") no-repeat 50% 50%;
+      }
+
+    }
+
+    &.burger {
+      display: block;
       background-color: $button-color;
       width: 40px;
       height: 40px;
       border-radius: 50%;
       position: relative;
+      padding: 11px;
       cursor: pointer;
       border: none;
       box-sizing: border-box;
-    }
-
-    .header__button__text {
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: -0.2px;
-      color: $text-color;
-      font-weight: 500;
-      font-style: normal;
-      margin: 0;
-      display: none;
-
-      @media (min-width: 768px) {
-        display: none;
+      background: $button-color url("../img/burger.svg") no-repeat 50% 50%;
+      margin-right: 16px;
+  
+      &:active {
+        background-color: $button-color;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        padding: 11px;
+        cursor: pointer;
+        border: none;
+        box-sizing: border-box;
       }
-
-      @media (min-width: 1440px) {
-        margin-right: 8px;
-        display: block;
-      }
-    }
-
-    @media (min-width: 1440px) {
-      margin-left: 0;
-      margin-bottom: 0;
-      margin-top: 0;
-      background-color: inherit;
     }
 
     @media (min-width: 768px) {
+      &:nth-child(-n + 3) {
+        display: block;
+      }
       margin-right: 16px;
       background-color: transparent;
       width: auto;
@@ -91,293 +229,131 @@
         width: auto;
       }
     }
-    
-  }
-
-  @media (min-width: 768px) {
-    width: 100%;
-    min-width: 768px;
-    max-width: 1440px;
-  }
-
-  @media (min-width: 1440px) {
-    width: auto;
-    min-width: auto;
-
-    &::after {
-      display: none;
-    }
-  }
-
-}
-
-.header__right-menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-right: 16px;
-  background: transparent;
-
-  .header__button {
-    &:nth-child(-n + 3) {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      &:nth-child(-n + 3) {
-        display: block;
-      }
-    }
 
     @media (min-width: 1440px) {
       &:nth-child(-n + 4) {
         display: none;
       }
+      margin-left: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      background-color: inherit;
+      display: flex;
+      align-items: center;
     }
   }
 
-  .phone {
-    display: block;
-    background-color: $button-color;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: relative;
-    padding: 11px;
-    cursor: pointer;
-    border: none;
-    box-sizing: border-box;
-    background: $button-color url("../img/phone.png") no-repeat 50% 50%;
+  .header__right-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-right: 16px;
+    background: transparent;
 
-    &:focus {
-      outline: none;
-      width: 40px;
-      height: 40px;
-      background: $button-color url("../img/phone.png") no-repeat 50% 50%;
+    .line {
+      background: $border-color;
+      border-radius: 1px;
+      width: 2px;
+      height: 32px;
+      margin-left: 10px;
+      margin-right: 15px;
+
+      @media (min-width: 768px) {
+        margin-left: 4px;
+        margin-right: 20px;
+      }
+
+      @media (min-width: 1440px) {
+        display: none;
+      }
     }
-  }
-  
-  .message {
-    display: block;
-    background-color: $button-color;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: relative;
-    padding: 11px;
-    cursor: pointer;
-    border: none;
-    box-sizing: border-box;
-    background: $button-color url("../img/message.png") no-repeat 50% 50%;
 
-    &:focus {
-      outline: none;
-      width: 40px;
-      height: 40px;
-      background: $button-color url("../img/message.png") no-repeat 50% 50%;
+
+    p {
+      @media (min-width: 1440px) {
+          display: block;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.2px;
+          color: $text-color;
+          margin-right: 8px;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 500;
+          font-style: normal;
+      }
     }
-  }
-  
-  .user {
-    display: block;
-    background-color: $button-color;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: relative;
-    padding: 11px;
-    cursor: pointer;
-    border: none;
-    box-sizing: border-box;
-    background: $button-color url("../img/user.png") no-repeat 50% 50%;
-
-    &:focus {
-      outline: none;
-      width: 40px;
-      height: 40px;
-      background: $button-color url("../img/user.png") no-repeat 50% 50%;
-    }
-  }
-  
-
-  .line {
-    background: $border-color;
-    border-radius: 1px;
-    width: 2px;
-    height: 32px;
-    margin-left: 10px;
-    margin-right: 15px;
 
     @media (min-width: 768px) {
-      margin-left: 4px;
-      margin-right: 20px;
+      padding-right: 24px;
     }
 
+    @media (min-width: 1440px) {
+      background-color: #f8f8f8;
+    }
+  }
+
+  .header__left-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 16px;
+  
+    .first-line {
+      background: $border-color;
+      border-radius: 1px;
+      width: 2px;
+      height: 32px;
+      margin-left: 4px;
+      margin-right: 20px;
+      display: none;
+  
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+  
+    @media (min-width: 768px) {
+      padding-left: 24px;
+    }
+  
     @media (min-width: 1440px) {
       display: none;
     }
   }
-
-  .repair {
-
-    &::after {
-      content: "";
-      display: block;
-      background-color: $button-color;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      position: relative;
-      padding: 11px;
-      cursor: pointer;
-      border: none;
-      box-sizing: border-box;
-      background: $button-color url("../img/repair.svg") no-repeat 50% 50%;
-    }
-
-    &:hover {
-      opacity: 0.7;
-      transition: 0.3s;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    @media (min-width: 1440px) {
-      width: auto;
-    }
-  }
-
-  .checkstatus {
-    margin-right: 0;
-
-    &:focus {
-      outline: none;
-    }
-
-    &::after {
-      content: "";
-      background-color: $button-color;
-      width: 40px;
-      display: block;
-      height: 40px;
-      border-radius: 50%;
-      position: relative;
-      padding: 11px;
-      cursor: pointer;
-      border: none;
-      box-sizing: border-box;
-      background: $button-color url("../img/checkstatus.svg") no-repeat 50% 50%;
-    }
-    &:hover {
-      opacity: 0.7;
-      transition: 0.3s;
-    }
-  }
-
-  p {
-    @media (min-width: 1440px) {
-        display: block;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: -0.2px;
-        color: $text-color;
-        margin-right: 8px;
-        margin-top: 0;
-        margin-bottom: 0;
-        font-weight: 500;
-        font-style: normal;
-    }
-  }
-
-  @media (min-width: 768px) {
-    padding-right: 24px;
-  }
-
-  @media (min-width: 1440px) {
-    background-color: #f8f8f8;
-  }
-}
-
-.header__left-menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-left: 16px;
-
-  .first-line {
-    background: $border-color;
-    border-radius: 1px;
-    width: 2px;
-    height: 32px;
-    margin-left: 4px;
-    margin-right: 20px;
-    display: none;
-
+  
+  .header__title {
+  
+    margin: 0;
+    margin-top: 24px;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: -0.6px;
+    color: $text-color;
+    padding-left: 16px;
+  
     @media (min-width: 768px) {
-      display: block;
+      padding-left: 24px;
     }
-  }
-
-  .burger {
-    background-color: $button-color;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: relative;
-    padding: 11px;
-    cursor: pointer;
-    border: none;
-    box-sizing: border-box;
-    background: $button-color url("../img/burger.svg") no-repeat 50% 50%;
-
-    &:active {
-      background-color: $button-color;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      position: relative;
-      padding: 11px;
-      cursor: pointer;
-      border: none;
-      box-sizing: border-box;
+  
+    @media (min-width: 1440px) {
+      order: -1;
+      margin-top: 0;
+      padding-left: 0;
+      padding-top: 0;
     }
-  }
-
-  @media (min-width: 768px) {
-    padding-left: 24px;
+  
   }
 
   @media (min-width: 1440px) {
-    display: none;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
   }
 }
 
-.header__title {
-  // margin-left: 16px;
-  margin: 0;
-  margin-top: 24px;
-  font-size: 28px;
-  line-height: 40px;
-  letter-spacing: -0.6px;
-  color: $text-color;
-  padding-left: 16px;
-
-  @media (min-width: 768px) {
-    padding-left: 24px;
-  }
-
-  @media (min-width: 1440px) {
-    order: -1;
-    margin-top: 0;
-    padding-left: 0;
-    padding-top: 0;
-  }
-
-}
-
-.sidebar__pseudo {
+.sidebar-pseudo {
   &::before {
     content: "";
     display: block;
